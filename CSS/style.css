@@ -1,0 +1,222 @@
+/* Autofill snippet from CSSTricks */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Menyertakan font kobo */
+@font-face {
+    font-family: "kobo";
+    src: url('/sign-up-form/Fonts/PixelifySans-VariableFont.ttf') format('truetype');
+}
+
+html {
+    font-family: "kobo", sans-serif;
+    font-size: 62.5%; /* Set 1rem = 10px untuk kemudahan perhitungan */
+    word-spacing: 0.15rem;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    font-size: 2.2rem;
+    background-color: aliceblue; /* Warna latar belakang lebih cerah */
+    word-spacing: 0.25rem; /* Jarak antar kata lebih longgar */
+}
+
+.hero {
+    height: 100vh;
+    width: 65%;
+    position: relative;
+    z-index: 1; /* Elemen ini berada di atas video */
+}
+
+.hero_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1; /* Video berada di latar belakang */
+}
+
+.legal {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1rem;
+    font-size: 2rem;
+    color: aliceblue;
+    word-spacing: 0.2rem;
+}
+
+.legal_name {
+    font-weight: bold;
+    color: rgb(243, 73, 73);
+    font-size: 2.5rem;
+    cursor: pointer;
+    word-spacing: 0.3rem;
+}
+
+.logo {
+    position: absolute;
+    z-index: 1;
+    width: 24rem;
+    height: auto;
+    top: 1rem;
+    left: 1rem;
+}
+
+/* Main content section */
+.content {
+    width: 35%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    background-color: rgba(9, 9, 9, 0.9); /* Warna abu-abu tua dengan transparansi */
+    color: rgb(243, 73, 73);
+    overflow-y: auto; /* Tambahkan scroll jika konten melebihi layar */
+}
+
+.panel {
+    width: fit-content;
+    max-width: 90%;
+    min-width: 25rem;
+    max-height: 90%;
+    border: 2px solid rgb(243, 73, 73);
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 3px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.1); /* Transparansi latar belakang */
+}
+
+.header {
+    margin: 0;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_primary {
+    font-size: 6rem;
+    margin-left: 1px;
+    color: aliceblue;
+}
+
+.header_primary:hover {
+    color: rgb(243, 73, 73);
+    background-color: aliceblue;
+}
+
+.header_secondary {
+    font-size: 2.5rem;
+    margin-left: 1px;
+}
+
+/* Styling for form elements */
+.form {
+    width: 100%;
+    max-width: 40rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.form_group {
+    margin-block: 1.5rem;
+}
+
+/* Default label color (putih) */
+.form_label {
+    font-size: 2rem;
+    display: block;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    color: aliceblue; /* Set warna label menjadi putih secara default */
+}
+
+/* Fokus dalam input, ubah warna label menjadi ungu */
+.form_group:focus-within .form_label {
+    color: purple; /* Warna label ungu ketika input difokuskan */
+}
+
+/* Styling untuk form control */
+.form_control {
+    display: block;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(34, 34, 34, 0.5); /* Transparansi 50% */
+    border: 1px solid #222;
+    font-family: inherit;
+    color: aliceblue;
+    font-size: 1.5rem;
+    width: calc(100% - 3rem); /* Menghindari penggunaan variabel dan menggunakan padding tetap */
+    padding: 0.4rem 1rem;
+    outline: none;
+    border-color: rgb(243, 73, 73);
+}
+
+.form_control:focus {
+    border-color: purple; /* Warna border ungu ketika input difokuskan */
+}
+
+/* Ubah warna label saat input valid atau invalid */
+.form_group:has(input:valid) .form_label {
+    color: green; /* Warna label hijau saat input valid */
+}
+
+/* Menambahkan gaya untuk input valid/invalid */
+input:valid {
+    border-color: green;
+}
+
+input:invalid {
+    border-color: rgb(243, 73, 73);
+}
+
+.join_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.btn-sign-up {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    display: block;
+    border: 1px solid rgb(34, 34, 34); /* Ganti $color-dark dengan nilai yang sesuai */
+    border-color: aliceblue;
+    padding: 0.5rem 3rem;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: inherit;
+    outline: none;
+}
+
+.btn-sign-up:hover {
+    background-color: aliceblue;
+    color: rgb(243, 73, 73);
+    border-color: rgb(243, 73, 73);
+}
